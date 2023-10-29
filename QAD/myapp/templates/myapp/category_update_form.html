@@ -1,0 +1,34 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{%block title %}Modificar Categoría{% endblock %}
+{%block content %}
+{% include 'myapp/includes/myapp_menu.html' %}
+<main role="main">
+  <div class="container">
+    <div class="row mb-5 mt-3">
+      <div class="col-md-9 mx-auto">
+            {% if 'ok' in request.GET %}
+              <p style="color:rgb(236, 147, 202);">Categoría modificado correctamente
+                <a href="{% url 'categorias' %}">
+                  Haz clic para ver el la lista de Categorías con la modificacion
+                </a>
+              </p>
+            {% endif %}        
+            <form action="" method="post" enctype='multipart/form-data'>{% csrf_token %}
+                  {{ form.as_p }}
+
+                  {% if product.image %}                              
+                    <img class="rounded float-left img-thumbnail img-fluid"  width="164" height="96" src="{{product.image.url}}"/>
+                  {% else %}
+                    <img class="rounded float-left img-thumbnail img-fluid"  width="164" height="96" src="{% static 'myapp/LogoQAD1.png' %}">
+                  {% endif  %} 
+
+                <div class="text-center">
+                  <input type="submit" class="btn btn-primary btn-block" value="Modificar Categoría" />
+                </div>
+            </form>
+      </div>
+    </div>
+  </div>
+</main>
+{%endblock%}

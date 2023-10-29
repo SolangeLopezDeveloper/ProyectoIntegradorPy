@@ -1,0 +1,17 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{%block title %}Eliminar categoría{% endblock %}
+{%block content %}
+{% include 'myapp/includes/myapp_menu.html' %}
+<main role="main">
+  <div class="container">
+    <div class="row mb-5 mt-3">
+      <form method="post">{% csrf_token %}
+        <p>Esta seguro que quiere eliminar el categoría "{{ object }}"?</p>
+        {% comment %} {{ form }} {% endcomment %}
+        <input type="submit" class="btn btn-dark" value="Confirmar">
+      </form>
+    </div>
+  </div>
+</main>
+{%endblock%}

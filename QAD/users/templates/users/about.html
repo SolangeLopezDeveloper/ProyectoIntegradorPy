@@ -1,0 +1,39 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+{% load static %}
+<main role="main" class="container g-5 text-center">
+    <div class="row">
+<div class="col-12 col-md-10 about_content">
+    <div class="col-8 about_text">
+        <h4>Acerca de mí </h4>
+        <p> Soy Solange López, tengo 33 años, soy mamá de Federico, Jamin, Martin, Agustín y Dante, vivo en Lanus
+        </p>
+        <p>
+            Soy Desarrolladora Web Node.js.
+            Mi objetivo en el futuro es certificarme como Scrum Master.
+            Me encuentro en constante aprendizaje, y muy entusiasmada por finalizar mi capacitación en desarrollo
+            Python.</p>
+            <h5>¿Cómo nació Quiero Algo Dulce?</h5>
+        <p>
+            Fuí una emprendedora de repostería, creé un negocio independiente durante 2020 de venta de tortas
+            artesanales y servicios para fiestas, y por eso pensé en éste e-commerce, que creo que algún día llevaré
+            a producción y lo haré realidad, ya que me parece una solución necesaria para todas aquellas personas
+            que quieren emprender en este rubro desde su casa y no tienen la facilidad para conectar con clientes.
+        </p>
+        <p>Además de disfrutar con mi familia, y la repostería,
+            la programación y el desarrollo se han vuelto mis hobbies y pasiones.
+        </p>
+
+       
+    </div>
+    <div class="col-6 about_img">
+        <img src="{% static 'myapp/images/solcito4.JPG' %}" alt="" class="rounded-circle " width="400" height="400">
+    </div>
+</div>
+      
+    </div>
+
+    </div>
+</main>
+{% endblock %}

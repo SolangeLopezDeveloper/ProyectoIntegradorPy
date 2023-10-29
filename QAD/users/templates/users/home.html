@@ -1,0 +1,21 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+{% load static %}
+<main role="main" class="container">
+    <div class="starter-template">
+        <h2 class="mt-5">¡Bienvenidos a Quiero Algo Dulce!</h2>
+        <hr>
+        <p class="small"><em>
+                Este es un sitio e-commerce construido con Django / Python<br>
+                Perteneciente al curso dictado por @Digitalers de la carrera de Desarrollo Web con Python<br>
+                <hr>
+                Alumna: Solange López<br>
+                Profesores: Jorge Angel Paez / Norman Beltran<br>
+            </em>
+        </p>
+        <a href="{% url 'about' %}" class="btn btn-primary mt-3 ">Acerca de Mí</a>
+    </div>
+   
+</main>
+{% endblock %}

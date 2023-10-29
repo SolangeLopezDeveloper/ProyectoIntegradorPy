@@ -1,0 +1,26 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{%block content %}
+<h2>{{ titulo }}</h2>
+{% include 'myapp/includes/myapp_menu.html' %}
+<main role="main" class="container">
+    <div class="container">
+        <h1 class="my-4">{{ producto.title }}</h1>
+        
+        <div class="row">
+            <div class="col-md-6" >
+                <img src="{{ producto.image.url }}" alt="{{ producto.title }}" class="img-fluid custom_img_detail">
+            </div>
+            <div class="col-md-6">
+                <h5 class="lead">Precio: ${{ producto.price }}</h5>
+                <p class="lead">{{ producto.description }}</p>
+                <a href="{% url 'cart' %}" class="btn btn-primary">Comprar</a>
+                <a href="{% url 'productos' %}" class="btn btn-secondary">Volver al Listado</a>
+            </div>
+        </div>
+    </div>
+    <div class="text-left m-2 mx-4"><span>{{product.description}}</span></div>
+</main>
+
+    {%endblock%}

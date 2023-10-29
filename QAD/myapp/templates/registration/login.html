@@ -1,0 +1,22 @@
+{%extends 'myapp/base.html'%}
+{% load static %}
+{%block title %}Login{% endblock %}
+{%block content%}
+<main role="main" class="container">
+	<div class="row mb-5 mt-3">
+		<form method="post" class="card" novalidate>
+			{% csrf_token %}
+			<legend class="text-center">Ingrese a su cuenta</legend>
+			{% for field in form %}
+			{{ field.label_tag }}
+			{{ field }}
+			{% if field.errors %}
+			<small>{{ field.errors|striptags }}</small>
+			{% endif %}
+			{% endfor %}
+			<br>
+			<input type="submit" value="Ingresar" class="btn btn-secondary full-width">
+		</form>
+	</div>
+</main>
+{%endblock content%}

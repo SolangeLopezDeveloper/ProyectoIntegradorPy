@@ -1,0 +1,53 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<h2>{{ titulo }}</h2>
+
+{% include 'myapp/includes/myapp_menu.html' %}
+<main role="main" class="container">
+
+    {% if event_list %}
+    <div class="row">
+        {% for event in event_list %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <h5 class="card-header text-center">{{ event.name }} </h5>
+                <div class="row flex-wrap">
+                    <div class="col-lg-12 text-center">
+                        {% if event.image %}
+                        <img class="rounded float-left img-thumbnail img-fluid custom_img" src="{{event.image.url}}"
+                            alt="{{event.image.url}}" />
+                        {% else %}
+                        <img class="rounded float-left img-thumbnail img-fluid custom_img"
+                            src="{% static 'myapp/images/products/tortaInfantil1.png' %}">
+                        {% endif %}
+                    </div>
+
+                </div>
+                {% if request.user.is_staff %}
+                <div class="card-body">
+                    <a href="{% url 'eventos-actualizar' event.id %}" class="btn btn-sm btn-secondary">Editar</a>
+                    <a href="{% url 'eventos-eliminar' event.id %}" class="btn btn-sm btn-info">Eliminar</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    </div>
+    {% else %}
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{% static 'myapp/LogoQAD1.png' %}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Eventos</h5>
+            <p class="card-text">Sin eventos ingresados en la Base de Datos del sitio, próximamente se actualizará</p>
+            <a href="{% url 'home' %}" class="btn btn-primary">Inicio</a>
+        </div>
+    </div>
+    {% endif %}
+</main>
+{% endblock content %}

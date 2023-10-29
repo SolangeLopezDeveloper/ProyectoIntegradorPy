@@ -1,0 +1,68 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{%block content %}
+<h2>{{ titulo }}</h2>
+{% include 'myapp/includes/myapp_menu.html' %}
+<main role="main" class="container">
+    {% if product_list %}
+    <div class="row">
+        {% for product in product_list %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <h5 class="card-header text-center">{{ product.title }}</h5>
+                <div class="row flex-wrap">
+                    <div class="col-lg-12 text-center">
+                        <a href="{% url 'producto-detalle' product.id %}">
+                            {% if product.image %}
+                            <img class="rounded float-left img-thumbnail img-fluid custom_img" width="164" height="96"
+                                src="{{product.image.url}}" alt="{{product.image.url}}" />
+                            </a>
+                            {% else %}
+                            <img class="rounded float-left img-thumbnail img-fluid custom_img" width="164" height="96"
+                                src="{% static 'myapp/images/products/tortaInfantil1.png' %}">
+                            {% endif %}
+                       
+                        <h5>${{ product.price }}</h5>
+                      
+                    </div>
+                    <div class="text-end">
+                        {% if request.user.is_authenticated %}
+                {% if not request.user.is_staff %}
+                    <div class="card-body">
+                        <a href="{% url 'cart' %}" class="btn btn-primary">COMPRAR</a>
+                    </div>
+                {% endif %}
+            {% else %}
+                <div class="card-body">
+                    <a href="{% url 'login' %}" class="btn btn-primary">Comprar</a>
+                </div>
+            {% endif %}
+                    </div>
+                </div>
+               
+                {% if request.user.is_staff %}
+                <div class="card-body">
+                    <a href="{% url 'productos-actualizar' product.id %}" class="btn btn-secondary">Editar</a>
+                    <a href="{% url 'productos-eliminar' product.id %}" class="btn btn-info">Eliminar</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+        {% else %}
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{% static 'myapp/LogoQAD1.png' %}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Productos</h5>
+                <p class="card-text">Sin productos ingresados en la Base de Datos del sitio, próximamente se
+                    actualizará
+                    nuestro stock</p>
+                <a href="{% url 'home' %}" class="btn btn-primary">Inicio</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</main>
+{%endblock%}

@@ -1,0 +1,35 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+{% block content %}
+<h1>Resultados de la búsqueda</h1>
+
+
+<ul>
+    {% for resultado in resultados %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+
+            <h5 class="card-header text-center">{{ resultado.title }}</h5>
+            <div class="row flex-wrap">
+                <div class="col-lg-12 text-center">
+                    <a href="{% url 'producto-detalle' resultado.id %}">
+                    {% if resultado.image %}
+                    <img class="rounded float-left img-thumbnail img-fluid" width="164" height="96"
+                        src="{{resultado.image.url}}" alt="{{resultado.image.url}}" />
+                
+                    {% else %}
+                    <img class="rounded float-left img-thumbnail img-fluid" width="164" height="96"
+                        src="{% static 'myapp/images/resultados/tortaInfantil1.png' %}">
+                    {% endif %}
+                    <h5>${{ resultado.price }}</h5>
+                </a>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No se encontraron resultados.</p>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <!-- ESTILOS -->
+    <script src="https://kit.fontawesome.com/95086d397a.js" crossorigin="anonymous"></script>
+    <link href="{% static 'myapp/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'myapp/_bootswatch.scss' %}" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/index.css' %}">
+</head>
+
+<body>
+    <nav class="navbar bg-secondary">
+        <nav class="navbar navbar-expand-lg w-100" style="background-color: #f8f4f5;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'myapp/LogoQAD1.png' %}" alt="Logo"
+                        style="width: 100px;"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'productos' %}">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'categorias' %}">Categorías</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'eventos' %}">Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'medida' %}">Medidas</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Usuarios
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    {% if request.user.is_authenticated %}
+                                    <a class="dropdown-item" href="{% url 'logout' %}">
+                                        {% else %}
+                                        <a class="dropdown-item" href="{% url 'login' %}">
+                                            {% endif %}
+
+                                            {% if request.user.is_authenticated %}Logout{% else %}Login{% endif %}
+                                        </a>
+                                </li>
+                                <li>
+                                    {% if request.user.is_authenticated %}
+                                    <a class="dropdown-item" href=""></a>
+                                    {% else %}
+                                    <a class="dropdown-item" href=""></a>
+                                    {% endif %}
+
+                                    {% if request.user.is_authenticated %}<a class="dropdown-item"
+                                        href="{% url 'profile' user.id %}">Mi Perfil</a>{% else %} <a
+                                        href="{% url 'signup' %}">Registrate</a> {% endif %}
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+
+                    {% block buscador %}
+
+                    <form method="get" class="d-flex" action="{% url 'search' %}">
+                        <input class="form-control me-2" type="text" name="q" value="{{ request.GET.q }}"
+                            placeholder="Buscar..." />
+                        <button class="btn btn-secondary" type="submit">Search</button>
+                    </form>
+                    {% endblock buscador %}
+
+
+                </div>
+            </div>
+        </nav>
+    </nav>
+    <!-- Contenido -->
+    {% block content %}{% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

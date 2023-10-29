@@ -1,0 +1,50 @@
+{% load static %}
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+<link href="{% static 'myapp/css/custom_ckeditor.css' %}" rel="stylesheet">
+
+{% if request.user.is_staff %}
+
+<div class="container">
+   
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Administrar</button>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Administrar</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item btn btn-secondary mb-2">
+          <a class="nav-link " href="{% url 'productos-crear' %}"> Agregar Productos <br><i class="fa-solid fa-plus"></i></a>
+        </li>
+        <li class="nav-item btn btn-secondary mb-2">
+          <a class="nav-link" href="{% url 'productos' %}">Listar Productos <br><i class="fa-solid fa-eye"></i></a>
+        </li>
+        <li class="nav-item btn btn-secondary mb-2">
+          <a class="nav-link" href="{% url 'categorias-crear' %}">Agregar Categorías <br><i class="fa-solid fa-plus"></i></a>
+        </li>
+        <li class="nav-item btn btn-secondary mb-2">
+          <a class="nav-link" href="{% url 'categorias' %}">Listar Categorías <br><i class="fa-solid fa-eye"></i></a>
+        </li>
+        <li class="nav-item btn btn-secondary mb-2">
+          <a class="nav-link" href="{% url 'eventos-crear' %}"> Agregar Eventos<br><i class="fa-solid fa-plus"></i></a>
+        </li>
+        <li class="nav-item btn btn-secondary mb-2">
+          <a class="nav-link" href="{% url 'eventos' %}">Listar Eventos <br><i class="fa-solid fa-eye"></i></a>
+        </li>
+        <li class="nav-item btn btn-secondary mb-2">
+          <a class="nav-link" href="{% url 'medida-crear' %}">Agregar Medidas <br><i class="fa-solid fa-plus"></i></a>
+        </li>
+        <li class="nav-item btn btn-secondary mb-2">
+          <a class="nav-link" href="{% url 'medida' %}">Listar Medidas <br><i class="fa-solid fa-eye"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+  </div>
+
+{% endif %}

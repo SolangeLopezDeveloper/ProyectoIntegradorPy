@@ -1,0 +1,86 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <h3>Carrito de Compras</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Producto 1</td>
+                        <td>2</td>
+                        <td>$10.00</td>
+                        <td>$20.00</td>
+                    </tr>
+                    <tr>
+                        <td>Producto 2</td>
+                        <td>1</td>
+                        <td>$15.00</td>
+                        <td>$15.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Resumen de Compra
+                </div>
+                <div class="card-body">
+                    <p>Total: $35.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-4">
+
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    Medios de Pago
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="payment-method">Selecciona el medio de pago:</label>
+                            <select class="form-control" id="payment-method">
+                                <option>Efectivo</option>
+                                <option>Tarjeta de Crédito</option>
+                                <option>PayPal</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    Dirección de Envío
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="shipping-address">Dirección de Envío:</label>
+                            <input type="text" class="form-control" id="shipping-address">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="button" class="btn btn-primary">Realizar Pago</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
