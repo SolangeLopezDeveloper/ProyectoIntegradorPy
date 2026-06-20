@@ -1,53 +1,86 @@
- # ¡Bienvenidos a Quiero Algo Dulce! 
+# 🍰 Quiero Algo Dulce — E-commerce Django
 
-<em> Quiero algo dulce es una aplicación pensada para conectar a emprendedoras y emprendedores de Repostería y Pastelería con clientes que deseen contratar sus servicios, de acuerdo a su ubicación geográfica.
+![App Preview](./docs/screenshot.png)
+> 📸 *Captura de la aplicación corriendo localmente. Imagen en `/docs/screenshot.png`.*
 
-Actualmente QAD está en la etapa de desarrollo, las áreas finalizadas de la aplicación son la posibilidad de registrar a un usuario vendedor que accede a cargar sus productos para ofertarlos y la posibilidad de registrar a un usuario comprador para adquirir los mismos. Proximamente se agregarán ubicación geográfica y pasarelas con medios de pago.
+## 🔗 Demo
+**[Ver aplicación en vivo](#)** *(proximamente en Railway)*
 
-Las herramientas utilizadas en el desarrollo son:
-##### Estilos y Funcionalidad
-- CSS
-- Bootstrap https://getbootstrap.com/
-- Bootswatch https://bootswatch.com/
-- Classy Class-Based Views https://ccbv.co.uk/
-- CK Editor https://ckeditor.com/
+---
 
-El proyecto está compuesto por las aplicaciones "My App", que cuenta con los modelos Product, Category, Event y Medida; y "Users", que a su vez tiene sus modelos User, Address, Cart, CartProduct, Order y OrderProduct.
+## 📌 Descripción
 
-Desde su creación QAD está pensada para ser completamente escalable.
+**Quiero Algo Dulce (QAD)** es una plataforma e-commerce desarrollada como proyecto integrador de cursada, pensada para conectar emprendedoras y emprendedores de repostería y pastelería con clientes según su ubicación geográfica.
 
-##### Para inicializar el proyecto:
- 
-- env\Scripts\activate (ingresa al entorno virtual)
-- cd QAD
-- python manage.py runserver
+Las áreas finalizadas incluyen:
+- Registro de **usuario vendedor** para cargar y ofertar productos
+- Registro de **usuario comprador** para adquirir productos
+- Gestión de carrito y órdenes de compra
 
-###### Para ingresar como superusuario:
--Usuario: superuser
--email: super@user.com
--pass: superuser123
+Desde su concepción, QAD está pensada para ser completamente escalable. Próximamente: geolocalización y pasarelas de pago.
 
-###### Para ingresar como usuario visitante:
--Usuario: User1
--pass: prueba1@23
+---
 
-</em>
+## 🛠️ Tecnologías
 
-###### Dependencias requeridas:
-asgiref==3.7.2
-certifi==2023.7.22
-charset-normalizer==3.3.0
-Django==4.2.6
-django-ckeditor==6.7.0
-django-js-asset==2.1.0
-idna==3.4
-Pillow==10.1.0
-requests==2.31.0
-sqlparse==0.4.4
-tzdata==2023.3
-urllib3==2.0.7
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django-092E20?style=flat&logo=django&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=bootstrap&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 
-### Desarrollado por Solange López
+- **Python / Django 4.2** — backend y ORM
+- **Bootstrap + Bootswatch** — estilos y componentes UI
+- **CKEditor** — editor de texto enriquecido
+- **Pillow** — manejo de imágenes
+- **SQLite** — base de datos de desarrollo
 
+---
 
+## 🗂️ Estructura de apps
 
+| App | Modelos |
+|-----|---------|
+| myapp | Product, Category, Event, Medida |
+| users | User, Address, Cart, CartProduct, Order, OrderProduct |
+
+---
+
+## 🚀 Correr localmente
+
+### Requisitos
+- Python 3.12
+- pip
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/SolangeLopezDeveloper/ProyectoIntegradorPy.git
+cd ProyectoIntegradorPy
+
+# Crear y activar entorno virtual
+python -m venv env
+
+# Windows:
+env\Scripts\activate
+# Mac/Linux:
+source env/bin/activate
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Aplicar migraciones
+cd QAD
+python manage.py migrate
+
+# Iniciar servidor
+python manage.py runserver
+```
+
+La aplicación estará disponible en `http://localhost:8000/home/`
+
+---
+
+## 👩‍💻 Desarrollado por
+
+**Solange López** — [GitHub](https://github.com/SolangeLopezDeveloper)
+
+> Proyecto integrador de cursada — 2023
