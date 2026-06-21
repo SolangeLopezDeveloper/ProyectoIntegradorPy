@@ -1,0 +1,46 @@
+
+/* PALETA DE COLORES */
+:root {
+
+  --marronClaro: #A68C76;
+  --marronMedio: #593622;
+  --marronOscuro: #260B01;
+  --rosa2:#D9AFA0;
+  --rosa: #F2D0C4;
+  --rosa3: #ffb3c5;
+  --background: url("{% static 'myapp/images/background.jpg' %}");
+}
+
+.about_content{
+  position: absolute;
+}
+
+.about_img {
+  position: relative;
+  display: inline-block;
+top: -16rem;
+left: 21rem;
+z-index: -1;
+}
+
+.about_img img{
+  box-shadow: 5px 5px 5px 5px #56cc9d57;
+}
+
+.about_text {
+  color: #260B01;
+  background-color: rgba(189, 126, 142, 0.3);
+  padding: 20px;
+  position: relative;
+ margin-top: 5%;
+ box-shadow: -5px 5px 5px 5px var(--rosa);
+ border-radius: 10px;
+}
+.custom_img{
+  width: 20rem;
+  height: 20rem;
+}
+.custom_img_detail{
+  width: 30rem;
+  height: 40rem;
+}
